@@ -21,13 +21,17 @@ const icons = {
         </svg>
 }
 
+export type iconNames = keyof typeof icons
+
 export default function CustomIcon({
     name,
     className,
+    variant = "default",
     ...props
 }: {
-    name: keyof typeof icons
-    className?: string
+    name: iconNames,
+    className?: string,
+    variant?: "default" | "square"
 }) {
 
     const IconComponent = icons[name];
@@ -40,6 +44,7 @@ export default function CustomIcon({
         <span
             className={cn(
                 "inline-flex items-center justify-center w-6 h-6 [&_svg]:w-full [&_svg]:h-full [&_svg]:fill-current",
+                variant === "square" && "rounded bg-black text-white",
                 className
             )}
             {...props}
