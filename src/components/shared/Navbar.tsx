@@ -37,15 +37,20 @@ export default function Navbar() {
                     >
                         <CustomIcon name="notificationNone" />
                     </Button>
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                    >
-                        <Avatar className="rounded-md">
+                    <div className="flex items-center gap-1.5 ml-2">
+                        <Avatar className="rounded-md w-10 h-auto">
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarFallback className="w-10 h-10 rounded-md">CN</AvatarFallback>
                         </Avatar>
-                    </Button>
+                        <div className="hidden sm:block">
+                            <p className="text-sm font-semibold">
+                                Sufi Muhammad
+                            </p>
+                            <p className="text-sm">
+                                Form 1
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </ResponsiveSection>
         </nav>
