@@ -149,7 +149,7 @@ export function BigLessonCard({
                         educationLevel={lesson.educationLevel}
                         deadline={lesson.deadline}
                     />
-                    <div className="h-full flex flex-col justify-between gap-4 sm:gap-0">
+                    <div className="h-full flex flex-col justify-between gap-4">
                         <CardHeader className="p-0">
                             <CardTitle>{lesson.name}</CardTitle>
                         </CardHeader>
@@ -159,7 +159,7 @@ export function BigLessonCard({
                                     <p className="text-sm">
                                         Progress:&nbsp;
                                         <span className="font-bold">
-                                            {progress}
+                                            {progress}%
                                         </span>
                                     </p>
                                     <Progress value={progress} />
@@ -195,7 +195,7 @@ export default function LessonCard({
         <Card
             className="p-2 overflow-hidden gap-0 flex-col-reverse"
         >
-            <CardHeader className="p-2">
+            <CardHeader className="p-2 grow">
                 <CardDescription>Chapter {lesson.chapter}</CardDescription>
                 <CardTitle>{lesson.name}</CardTitle>
             </CardHeader>
