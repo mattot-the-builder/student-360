@@ -10,6 +10,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "@/component
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { Lesson } from "@/types";
+import RankingCard from "@/components/student/cards/RankingCard";
 
 const headerMenuItems: { name: string, icon: iconNames }[] = [
     {
@@ -166,8 +167,8 @@ export default function StudentHome() {
                         </PageHeaderSummaryCardContainer>
                     </div>
                 </PageHeader>
-                <div className="grid gap-6 sm:grid-cols-3">
-                    <div className="space-y-6 sm:col-span-2">
+                <div className="flex flex-col gap-6 lg:flex-row">
+                    <div className="space-y-6 grow">
                         <DashboardBlock>
                             <DashboardBlockHeader>
                                 <TypographyH2>
@@ -195,7 +196,7 @@ export default function StudentHome() {
                                     <CustomIcon name="fire" className="ml-4" />
                                 </TypographyH2>
                             </DashboardBlockHeader>
-                            <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+                            <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-3">
                                 {recommendedLessons.map((lesson, index) => (
                                     <LessonCard
                                         key={index}
@@ -205,7 +206,7 @@ export default function StudentHome() {
                             </div>
                         </DashboardBlock>
                     </div>
-                    <div>
+                    <div className="space-y-6 lg:w-1/2">
                         <DashboardBlock>
                             <ProgressSummaryCard
                                 icon="target"
@@ -245,6 +246,9 @@ export default function StudentHome() {
                                     <Progress value={100} />
                                 </CardContent>
                             </ProgressSummaryCard>
+                        </DashboardBlock>
+                        <DashboardBlock>
+                            <RankingCard />
                         </DashboardBlock>
                     </div>
                 </div>
