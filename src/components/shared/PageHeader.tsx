@@ -45,6 +45,7 @@ export function SummaryCard({
         <div
             className={cn(
                 "flex flex-col items-center gap-2 p-2 rounded-lg sm:px-3",
+                className
             )}
             {...props}
         >
