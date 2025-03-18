@@ -4,7 +4,10 @@ import PageHeader, { PageHeaderSummaryCardContainer, PageHeaderTopContainer, Sum
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
 import { TypographyH1, TypographyH2, TypographyP } from "@/components/shared/Typography"
 import LessonCard, { BigLessonCard } from "@/components/student/cards/LessonCard";
+import ProgressSummaryCard from "@/components/shared/cards/ProgressSummaryCard";
 import { Button } from "@/components/ui/button";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { Lesson } from "@/types";
 
@@ -203,7 +206,46 @@ export default function StudentHome() {
                         </DashboardBlock>
                     </div>
                     <div>
-                        <div className="w-full h-96 bg-sky-200/80"></div>
+                        <DashboardBlock>
+                            <ProgressSummaryCard
+                                icon="target"
+                            >
+                                <CardHeader className="p-0 mb-2">
+                                    <CardTitle className="flex items-center gap-2">
+                                        Quiz Lesson 3
+                                        <CustomIcon
+                                            name="target"
+                                            className="w-4 h-4"
+                                        />
+                                    </CardTitle>
+                                    <CardDescription>
+                                        Revisit your mistake
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="p-0 space-y-1">
+                                    <Progress value={75} />
+                                    <div className="flex justify-between text-muted-foreground">
+                                        <small>18/24 Correct</small>
+                                        <small>75%</small>
+                                    </div>
+                                </CardContent>
+                            </ProgressSummaryCard>
+                            <ProgressSummaryCard
+                                icon="fire"
+                            >
+                                <CardHeader className="p-0 mb-2">
+                                    <CardTitle className="flex items-center gap-2">
+                                        Daily Goal
+                                    </CardTitle>
+                                    <CardDescription>
+                                        You reached your daily 15pts!
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="p-0">
+                                    <Progress value={100} />
+                                </CardContent>
+                            </ProgressSummaryCard>
+                        </DashboardBlock>
                     </div>
                 </div>
             </ResponsiveSection>
