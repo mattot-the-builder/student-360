@@ -1,4 +1,5 @@
 import CustomIcon, { iconNames } from "@/components/shared/CustomIcon";
+import DashboardBlock, { DashboardBlockHeader } from "@/components/shared/DashboardBlock";
 import PageHeader, { PageHeaderSummaryCardContainer, PageHeaderTopContainer, SummaryCard } from "@/components/shared/PageHeader"
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
 import { TypographyH1, TypographyH2, TypographyP } from "@/components/shared/Typography"
@@ -133,26 +134,35 @@ export default function StudentHome() {
                     </div>
                 </PageHeader>
                 <div className="grid gap-6 sm:grid-cols-3">
-                    <div className="space-y-4 sm:col-span-2">
-                        <div className="flex justify-between items-center">
-                            <TypographyH2>
-                                Continue Learning
-                            </TypographyH2>
-                            <Button
-                                variant="link"
-                            >
-                                View All
-                            </Button>
-                        </div>
-                        {continueLearningLessons.map((lesson, index) => (
-                            <BigLessonCard
-                                key={index}
-                                lesson={lesson}
-                                progress={80}
-                                aiSuggestionText={index === 0 ? "Power your learning with past exam questions" : undefined}
-                            />
-
-                        ))}
+                    <div className="space-y-6 sm:col-span-2">
+                        <DashboardBlock>
+                            <DashboardBlockHeader>
+                                <TypographyH2>
+                                    Continue Learning
+                                </TypographyH2>
+                                <Button
+                                    variant="link"
+                                >
+                                    View All
+                                </Button>
+                            </DashboardBlockHeader>
+                            {continueLearningLessons.map((lesson, index) => (
+                                <BigLessonCard
+                                    key={index}
+                                    lesson={lesson}
+                                    progress={80}
+                                    aiSuggestionText={index === 0 ? "Power your learning with past exam questions" : undefined}
+                                />
+                            ))}
+                        </DashboardBlock>
+                        <DashboardBlock>
+                            <DashboardBlockHeader>
+                                <TypographyH2>
+                                    Recommended Lessons
+                                    <CustomIcon name="fire" className="ml-4" />
+                                </TypographyH2>
+                            </DashboardBlockHeader>
+                        </DashboardBlock>
                     </div>
                     <div>
                         <div className="w-full h-96 bg-sky-200/80"></div>
