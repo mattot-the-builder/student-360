@@ -1,5 +1,5 @@
 import CustomIcon, { iconNames } from "@/components/shared/CustomIcon";
-import PageHeader, { PageHeaderTopContainer, PageHeaderWidgetContainer } from "@/components/shared/PageHeader"
+import PageHeader, { PageHeaderSummaryCardContainer, PageHeaderTopContainer, SummaryCard } from "@/components/shared/PageHeader"
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
 import { TypographyH1, TypographyP } from "@/components/shared/Typography"
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,27 @@ const headerMenuItems: { name: string, icon: iconNames }[] = [
     {
         name: "Mock Exams",
         icon: "stars"
+    },
+]
+
+const headerSummaryItems: { name: string, value: number, icon: iconNames, color: string }[] = [
+    {
+        name: "Days Streaks",
+        value: 54,
+        icon: "fire",
+        color: "text-red-600"
+    },
+    {
+        name: "Goals Reached",
+        value: 6,
+        icon: "target",
+        color: "text-orange-600"
+    },
+    {
+        name: "Points",
+        value: 3400,
+        icon: "awardStar",
+        color: "text-purple-800"
     },
 ]
 
@@ -65,9 +86,27 @@ export default function StudentHome() {
                         </div>
                     </PageHeaderTopContainer>
                     <div>
-                        <PageHeaderWidgetContainer>
-                            test
-                        </PageHeaderWidgetContainer>
+                        <PageHeaderSummaryCardContainer className="bg-sky-200/80">
+                            {headerSummaryItems.map((summaryItem, index) => (
+                                <SummaryCard key={index}>
+                                    <div className="flex justify-center items-center gap-1">
+                                        <CustomIcon
+                                            name={summaryItem.icon}
+                                            className={cn(
+                                                "w-5 h-5",
+                                                summaryItem.color
+                                            )}
+                                        />
+                                        <span className="text font-semibold">
+                                            {summaryItem.value}
+                                        </span>
+                                    </div>
+                                    <p className="text-xs font-medium">
+                                        {summaryItem.name}
+                                    </p>
+                                </SummaryCard>
+                            ))}
+                        </PageHeaderSummaryCardContainer>
                     </div>
                 </PageHeader>
             </ResponsiveSection>

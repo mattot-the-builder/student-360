@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils"
+
 export function PageHeaderTopContainer({
     children
 }: Readonly<{
@@ -10,13 +12,42 @@ export function PageHeaderTopContainer({
     )
 }
 
-export function PageHeaderWidgetContainer({
-    children
+export function PageHeaderSummaryCardContainer({
+    children,
+    className,
+    ...props
 }: Readonly<{
-    children: React.ReactNode
+    children: React.ReactNode,
+    className?: string,
 }>) {
     return (
-        <div className="flex items-center gap-4 bg-sky-200 p-4 rounded-md">
+        <div
+            className={cn(
+                "flex justify-between items-center gap-4 p-2 rounded-xl overflow-hidden sm:w-fit sm:justify-start",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </div>
+    )
+}
+
+export function SummaryCard({
+    children,
+    className,
+    ...props
+}: Readonly<{
+    children: React.ReactNode,
+    className?: string,
+}>) {
+    return (
+        <div
+            className={cn(
+                "flex flex-col items-center gap-2 p-2 rounded-lg sm:px-3",
+            )}
+            {...props}
+        >
             {children}
         </div>
     )
