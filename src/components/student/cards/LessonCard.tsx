@@ -64,8 +64,8 @@ function LessonCardBadgeContainer({
     chapter,
     educationLevel,
     deadline,
-}: Partial<Pick<Lesson, "chapter">> &
-    Pick<Lesson, "subject" | "educationLevel" | "deadline">
+}: Partial<Pick<Lesson, "chapter" | "deadline">> &
+    Pick<Lesson, "subject" | "educationLevel">
 ) {
     return (
         <div className={cn(
@@ -87,18 +87,20 @@ function LessonCardBadgeContainer({
                     </LessonBadge>
                 )}
             </div>
-            <LessonBadge
-                icon="fire"
-            >
-                {chapter && (
-                    <span>
-                        Deadline:&nbsp;
-                    </span>
-                )}
-                <p>
-                    {timeDiff(deadline).value} {timeDiff(deadline).unit}
-                </p>
-            </LessonBadge>
+            {deadline && (
+                <LessonBadge
+                    icon="fire"
+                >
+                    {chapter && (
+                        <span>
+                            Deadline:&nbsp;
+                        </span>
+                    )}
+                    <p>
+                        {timeDiff(deadline).value} {timeDiff(deadline).unit}
+                    </p>
+                </LessonBadge>
+            )}
         </div >
     )
 }
@@ -206,7 +208,7 @@ export default function LessonCard({
                 <LessonCardBadgeContainer
                     subject={lesson.subject}
                     educationLevel={lesson.educationLevel}
-                    deadline={lesson.deadline}
+                    deadline={lesson.deadline || undefined}
                 />
             </CardFooter>
         </Card>

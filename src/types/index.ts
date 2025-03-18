@@ -17,7 +17,7 @@ export type Lesson = {
     chapter: number;
     educationLevel: string;
     materialCount: number;
-    deadline: Date;
+    deadline?: Date;
     imageSrc: string;
     status?: "not-started" | "in-progress" | "completed";
 };
