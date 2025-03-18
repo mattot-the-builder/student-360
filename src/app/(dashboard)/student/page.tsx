@@ -1,9 +1,11 @@
 import CustomIcon, { iconNames } from "@/components/shared/CustomIcon";
 import PageHeader, { PageHeaderSummaryCardContainer, PageHeaderTopContainer, SummaryCard } from "@/components/shared/PageHeader"
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
-import { TypographyH1, TypographyP } from "@/components/shared/Typography"
+import { TypographyH1, TypographyH2, TypographyP } from "@/components/shared/Typography"
+import { BigLessonCard } from "@/components/student/cards/LessonCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Lesson } from "@/types";
 
 const headerMenuItems: { name: string, icon: iconNames }[] = [
     {
@@ -49,10 +51,31 @@ const headerSummaryItems: { name: string, value: number, icon: iconNames, color:
     },
 ]
 
+const continueLearningLessons: Lesson[] = [
+    {
+        subject: "Sejarah",
+        name: "Peningkatan Tamadun India dan China",
+        chapter: 5,
+        educationLevel: "Form 1",
+        materialCount: 12,
+        deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+        imageSrc: "https://placehold.co/320x180",
+    },
+    {
+        subject: "Science",
+        name: "Human Anatomy",
+        chapter: 5,
+        educationLevel: "Form 1",
+        materialCount: 12,
+        deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+        imageSrc: "https://placehold.co/320x180",
+    }
+]
+
 export default function StudentHome() {
     return (
         <main>
-            <ResponsiveSection>
+            <ResponsiveSection className="space-y-8">
                 <PageHeader>
                     <PageHeaderTopContainer>
                         <div>
@@ -109,6 +132,32 @@ export default function StudentHome() {
                         </PageHeaderSummaryCardContainer>
                     </div>
                 </PageHeader>
+                <div className="grid gap-6 sm:grid-cols-3">
+                    <div className="space-y-4 sm:col-span-2">
+                        <div className="flex justify-between items-center">
+                            <TypographyH2>
+                                Continue Learning
+                            </TypographyH2>
+                            <Button
+                                variant="link"
+                            >
+                                View All
+                            </Button>
+                        </div>
+                        {continueLearningLessons.map((lesson, index) => (
+                            <BigLessonCard
+                                key={index}
+                                lesson={lesson}
+                                progress={80}
+                                aiSuggestionText={index === 0 ? "Power your learning with past exam questions" : undefined}
+                            />
+
+                        ))}
+                    </div>
+                    <div>
+                        <div className="w-full h-96 bg-sky-200/80"></div>
+                    </div>
+                </div>
             </ResponsiveSection>
         </main>
     );
