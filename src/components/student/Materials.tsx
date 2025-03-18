@@ -1,7 +1,7 @@
 "use client"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Lesson, LESSON_STATUS } from "@/types"
+import { Lesson } from "@/types"
 import { useEffect, useState } from "react"
 import LessonCard from "@/components/student/cards/LessonCard"
 import { kebabToTitleCase } from "@/lib/utils"

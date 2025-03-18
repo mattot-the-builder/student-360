@@ -2,7 +2,7 @@ import CustomIcon from "@/components/shared/CustomIcon";
 import DashboardBlock, { DashboardBlockHeader } from "@/components/shared/DashboardBlock";
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
 import { TypographyH2 } from "@/components/shared/Typography"
-import LessonCard, { BigLessonCard } from "@/components/student/cards/LessonCard";
+import { BigLessonCard } from "@/components/student/cards/LessonCard";
 import Materials from "@/components/student/Materials";
 import { Button } from "@/components/ui/button";
 import { Lesson } from "@/types";
