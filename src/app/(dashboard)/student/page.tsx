@@ -3,7 +3,7 @@ import DashboardBlock, { DashboardBlockHeader } from "@/components/shared/Dashbo
 import PageHeader, { PageHeaderSummaryCardContainer, PageHeaderTopContainer, SummaryCard } from "@/components/shared/PageHeader"
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
 import { TypographyH1, TypographyH2, TypographyP } from "@/components/shared/Typography"
-import { BigLessonCard } from "@/components/student/cards/LessonCard";
+import LessonCard, { BigLessonCard } from "@/components/student/cards/LessonCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Lesson } from "@/types";
@@ -69,6 +69,36 @@ const continueLearningLessons: Lesson[] = [
         educationLevel: "Form 1",
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+        imageSrc: "https://placehold.co/320x180",
+    }
+]
+
+const recommendedLessons: Lesson[] = [
+    {
+        subject: "Sejarah",
+        name: "Peningkatan Tamadun India dan China",
+        chapter: 5,
+        educationLevel: "Form 1",
+        materialCount: 12,
+        deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+        imageSrc: "https://placehold.co/320x180",
+    },
+    {
+        subject: "Science",
+        name: "Heart and Life",
+        chapter: 5,
+        educationLevel: "Form 1",
+        materialCount: 5,
+        deadline: new Date(Date.now() + 1000 * 60 * 60),
+        imageSrc: "https://placehold.co/320x180",
+    },
+    {
+        subject: "Mathematics",
+        name: "Trigonometry",
+        chapter: 5,
+        educationLevel: "Form 1",
+        materialCount: 5,
+        deadline: new Date(Date.now() + 1000 * 60 * 60 * 2),
         imageSrc: "https://placehold.co/320x180",
     }
 ]
@@ -162,6 +192,14 @@ export default function StudentHome() {
                                     <CustomIcon name="fire" className="ml-4" />
                                 </TypographyH2>
                             </DashboardBlockHeader>
+                            <div className="grid gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+                                {recommendedLessons.map((lesson, index) => (
+                                    <LessonCard
+                                        key={index}
+                                        lesson={lesson}
+                                    />
+                                ))}
+                            </div>
                         </DashboardBlock>
                     </div>
                     <div>

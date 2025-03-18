@@ -33,7 +33,7 @@ function LessonImage({
             </div>
             <img
                 src={src}
-                className="w-full h-full aspect-video object-cover rounded-lg"
+                className="w-full h-full aspect-video object-cover rounded-lg shadow-md"
             />
         </div>
     )
@@ -64,24 +64,28 @@ function LessonCardBadgeContainer({
     chapter,
     educationLevel,
     deadline,
-}: Pick<Lesson,
-    "subject" | "chapter" | "educationLevel" | "deadline"
->) {
+}: Partial<Pick<Lesson, "chapter">> &
+    Pick<Lesson, "subject" | "educationLevel" | "deadline">
+) {
     return (
         <div className={cn(
-            "flex gap-2",
-            chapter ? "flex-col sm:flex-row sm:justify-between" : "justify-between"
+            "w-full flex flex-col gap-2",
+            chapter ? "xl:flex-row xl:justify-between" : "flex-row justify-between"
         )}>
             <div className="flex items-center gap-2">
                 <LessonBadge
                     icon="fire"
-                    className="border-r pr-3"
+                    className={cn(
+                        chapter && "border-r pr-3"
+                    )}
                 >
                     {subject} {educationLevel}
                 </LessonBadge>
-                <LessonBadge>
-                    Chapter {chapter}
-                </LessonBadge>
+                {chapter && (
+                    <LessonBadge>
+                        Chapter {chapter}
+                    </LessonBadge>
+                )}
             </div>
             <LessonBadge
                 icon="fire"
@@ -149,9 +153,9 @@ export function BigLessonCard({
                         <CardHeader className="p-0">
                             <CardTitle>{lesson.name}</CardTitle>
                         </CardHeader>
-                        <CardContent className="p-0 mt-auto">
+                        <CardContent className="p-0">
                             <div className="flex gap-4 items-center">
-                                <div className="flex-grow space-y-2">
+                                <div className="grow space-y-2">
                                     <p className="text-sm">
                                         Progress:&nbsp;
                                         <span className="font-bold">
@@ -182,18 +186,28 @@ export function BigLessonCard({
     )
 }
 
-export default function LessonCard() {
+export default function LessonCard({
+    lesson,
+}: {
+    lesson: Lesson
+}) {
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
+        <Card
+            className="p-2 overflow-hidden gap-0 flex-col-reverse"
+        >
+            <CardHeader className="p-2">
+                <CardDescription>Chapter {lesson.chapter}</CardDescription>
+                <CardTitle>{lesson.name}</CardTitle>
             </CardHeader>
-            <CardContent>
-                <p>Card Content</p>
+            <CardContent className="px-2 py-1">
+                <LessonImage src={lesson.imageSrc} materialsCount={lesson.materialCount} />
             </CardContent>
-            <CardFooter>
-                <p>Card Footer</p>
+            <CardFooter className="p-2">
+                <LessonCardBadgeContainer
+                    subject={lesson.subject}
+                    educationLevel={lesson.educationLevel}
+                    deadline={lesson.deadline}
+                />
             </CardFooter>
         </Card>
     )
