@@ -5,6 +5,12 @@ export type Range<
     ? Result[number]
     : Range<N, [...Result, Result["length"]]>;
 
+export enum LESSON_STATUS {
+    NOT_STARTED = "not-started",
+    IN_PROGRESS = "in-progress",
+    COMPLETED = "completed",
+}
+
 export type Lesson = {
     subject: string;
     name: string;
@@ -13,4 +19,5 @@ export type Lesson = {
     materialCount: number;
     deadline: Date;
     imageSrc: string;
+    status?: "not-started" | "in-progress" | "completed";
 };

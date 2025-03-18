@@ -140,7 +140,7 @@ export function BigLessonCard({
             className="p-0 overflow-hidden gap-0"
             {...props}
         >
-            <div className="grid p-2 gap-4 sm:grid-cols-4 sm:gap-2">
+            <div className="grid p-2 gap-4 h-full sm:grid-cols-4 sm:gap-2">
                 <LessonImage src={lesson.imageSrc} materialsCount={lesson.materialCount} />
                 <div className="p-2 space-y-3 flex flex-col sm:col-span-3">
                     <LessonCardBadgeContainer

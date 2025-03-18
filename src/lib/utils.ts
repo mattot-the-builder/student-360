@@ -17,3 +17,10 @@ export function timeDiff(date: Date) {
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
     return { value: diffHours, unit: diffHours === 1 ? "hour" : "hours" };
 }
+
+export function kebabToTitleCase(str: string) {
+    return str
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+}
