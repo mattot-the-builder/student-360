@@ -49,13 +49,10 @@ export default function LessonSidebar({
     const { isOpen, toggleSidebar } = useLessonSidebar();
     const [selectedTab, setSelectedTab] = useState<LessonTabKey>("Content");
 
-    if (!isOpen) {
-        return null
-    }
-
     return (
         <nav className={cn(
-            "absolute top-0 right-0 z-10 min-h-full py-2 border bg-background overflow-hidden xl:static xl:block",
+            "absolute top-0 right-0 z-10 min-h-full py-2 border bg-background overflow-hidden",
+            isOpen ? "block xl:static xl:inline-block" : "hidden",
             className
         )}>
             <div className="flex justify-between items-center">
