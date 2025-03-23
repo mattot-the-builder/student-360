@@ -14,7 +14,8 @@ const materials: Lesson[] = [
         educationLevel: "Form 1",
         materialCount: 12,
         imageSrc: "https://placehold.co/320x180",
-        status: "not-started"
+        status: "not-started",
+        content: []
     },
     {
         subject: "Science",
@@ -23,7 +24,8 @@ const materials: Lesson[] = [
         educationLevel: "Form 1",
         materialCount: 5,
         imageSrc: "https://placehold.co/320x180",
-        status: "in-progress"
+        status: "in-progress",
+        content: []
     },
     {
         subject: "Mathematics",
@@ -32,7 +34,8 @@ const materials: Lesson[] = [
         educationLevel: "Form 1",
         materialCount: 5,
         imageSrc: "https://placehold.co/320x180",
-        status: "in-progress"
+        status: "in-progress",
+        content: []
     },
     {
         subject: "Sejarah",
@@ -41,7 +44,8 @@ const materials: Lesson[] = [
         educationLevel: "Form 1",
         materialCount: 12,
         imageSrc: "https://placehold.co/320x180",
-        status: "completed"
+        status: "completed",
+        content: []
     },
 ]
 

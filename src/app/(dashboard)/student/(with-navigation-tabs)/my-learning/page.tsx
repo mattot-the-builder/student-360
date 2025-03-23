@@ -16,6 +16,7 @@ const continueLearningLessons: Lesson[] = [
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         imageSrc: "https://placehold.co/320x180",
+        content: []
     },
     {
         subject: "Science",
@@ -25,6 +26,7 @@ const continueLearningLessons: Lesson[] = [
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         imageSrc: "https://placehold.co/320x180",
+        content: []
     },
     {
         subject: "Sejarah",
@@ -34,6 +36,7 @@ const continueLearningLessons: Lesson[] = [
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         imageSrc: "https://placehold.co/320x180",
+        content: []
     },
     {
         subject: "Science",
@@ -43,6 +46,7 @@ const continueLearningLessons: Lesson[] = [
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         imageSrc: "https://placehold.co/320x180",
+        content: []
     }
 ]
 
