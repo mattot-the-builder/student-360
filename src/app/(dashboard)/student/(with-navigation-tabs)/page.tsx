@@ -65,6 +65,42 @@ export const continueLearningLessons: Lesson[] = [
         materialCount: 12,
         deadline: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         imageSrc: "https://placehold.co/320x180",
+        content: [
+            {
+                title: "Pengenalan",
+                items: [
+                    {
+                        title: "Pengenalan kepada Tamadun India dan China",
+                        isCompleted: true
+                    },
+                    {
+                        title: "Faktor-faktor Peningkatan Tamadun",
+                        isCompleted: true
+                    },
+                    {
+                        title: "Kepentingan Mempelajari Tamadun India dan China",
+                        isCompleted: false
+                    },
+                ]
+            },
+            {
+                title: "Latar Belakang Tamadun India",
+                items: [
+                    {
+                        title: "Kewujudan dan Perkembangan Awal Tamadun India",
+                        isCompleted: false
+                    },
+                    {
+                        title: "Dinasti-dinasti Penting dalam Tamadun India (Maurya & Gupta)",
+                        isCompleted: false
+                    },
+                    {
+                        title: "Pengaruh Agama dan Falsafah (Hindu & Buddha)",
+                        isCompleted: false
+                    },
+                ]
+            },
+        ]
     },
     {
         subject: "Science",

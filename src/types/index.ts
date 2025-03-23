@@ -11,6 +11,14 @@ export enum LESSON_STATUS {
     COMPLETED = "completed",
 }
 
+export type LessonContent = {
+    title: string;
+    items: {
+        title: string;
+        isCompleted: boolean;
+    }[];
+}[];
+
 export type Lesson = {
     subject: string;
     name: string;
@@ -20,4 +28,5 @@ export type Lesson = {
     deadline?: Date;
     imageSrc: string;
     status?: "not-started" | "in-progress" | "completed";
+    content: LessonContent;
 };

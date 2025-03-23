@@ -1,23 +1,7 @@
-import CustomIcon from "@/components/shared/CustomIcon"
 import ResponsiveSection from "@/components/shared/ResponsiveSection"
-import { continueLearningLessons } from "@/app/(dashboard)/student/(with-navigation-tabs)/page"
-import PreviousPageButton from "@/components/shared/PreviousPageButton";
-
-function LessonPageHeader() {
-    const lesson = continueLearningLessons[0];
-
-    return (
-        <nav className="px-6 py-2 flex items-center gap-4 lg:px-20">
-            <PreviousPageButton />
-            <div className="inline-flex">
-                <CustomIcon name="book" variant="square" className="p-1.5 mr-2" />
-                <p className="font-semibold">
-                    {lesson.subject} {lesson.educationLevel} | Chapter {lesson.chapter}: {lesson.name}
-                </p>
-            </div>
-        </nav>
-    )
-}
+import LessonPageHeader from "@/components/student/LessonPageHeader"
+import LessonSidebar from "@/components/student/LessonSidebar"
+import { continueLearningLessons } from "../../(with-navigation-tabs)/page"
 
 export default async function LessonPage({
     params,
@@ -25,48 +9,57 @@ export default async function LessonPage({
     params: Promise<{ slug: string }>
 }) {
     const slug = (await params).slug
+    const lesson = continueLearningLessons[0]
 
     return (
-        <>
-            <LessonPageHeader />
-            <main className="flex justify-center items-center">
-                <ResponsiveSection>
-                    <article className="prose lg:prose-lg">
-                        <h1>Peningkatan Tamadun India dan China</h1>
-                        <img
-                            src="https://placehold.co/640x360"
-                            alt="Placeholder Image"
-                            className="aspect-video w-full rounded-lg"
-                        />
-                        <p>
-                            Tamadun India dan China merupakan antara tamadun terawal yang berkembang pesat dalam sejarah dunia.
-                            Kedua-duanya mencapai kemajuan besar dalam politik, ekonomi, sosial, kebudayaan, dan teknologi.
-                        </p>
+        <div className="flex relative">
+            <div className="grow">
+                <LessonPageHeader lesson={lesson} />
+                <main className="flex justify-center items-center">
+                    <ResponsiveSection>
+                        <article className="prose lg:prose-lg">
+                            <h2>Lesson Slug : <span className="text-red-500">{slug}</span></h2>
 
-                        <h2>Tamadun India</h2>
-                        <ul>
-                            <li>Berkembang pesat semasa pemerintahan <strong>Dinasti Maurya</strong> dan <strong>Dinasti Gupta.</strong></li>
-                            <li><strong>Maharaja Chandragupta Maurya</strong> dan <strong>Asoka</strong> memperkenalkan sistem pemerintahan yang kuat dan toleransi agama.</li>
-                            <li>Asoka menyebarkan ajaran <strong>Buddha</strong> ke serata Asia melalui misi diplomatik.</li>
-                            <li><strong>Dinasti Gupta</strong> dikenali sebagai zaman kegemilangan kerana kemajuan dalam <strong>seni, sains, dan falsafah.</strong></li>
-                            <li><strong>Sistem kasta</strong> menjadi tunjang sosial, mengatur peranan masyarakat mengikut kedudukan mereka.</li>
-                            <li><strong>Sumbangan utama dalam matematik:</strong> Konsep sifar dan angka perpuluhan oleh Aryabhata.</li>
-                            <li><strong>Seni bina agung:</strong> Candi Borobudur dan Ajanta mencerminkan keindahan seni dan kepercayaan keagamaan.</li>
-                        </ul>
+                            <h1>Peningkatan Tamadun India dan China</h1>
+                            <img
+                                src="https://placehold.co/640x360"
+                                alt="Placeholder Image"
+                                className="aspect-video w-full rounded-lg"
+                            />
+                            <p>
+                                Tamadun India dan China merupakan antara tamadun terawal yang berkembang pesat dalam sejarah dunia.
+                                Kedua-duanya mencapai kemajuan besar dalam politik, ekonomi, sosial, kebudayaan, dan teknologi.
+                            </p>
 
-                        <h2>Tamadun China</h2>
-                        <ul>
-                            <li>Berkembang pesat semasa pemerintahan Dinasti Zhou, Qin, dan Han.</li>
-                            <li><strong>Falsafah utama:</strong> Konfusianisme, Taoisme, dan Legalisme mempengaruhi kehidupan sosial dan pemerintahan.</li>
-                            <li>Dinasti Qin terkenal dengan penyatuan wilayah China dan pembinaan Tembok Besar China.</li>
-                            <li>Dinasti Han membawa kemajuan dalam teknologi, perdagangan, dan hubungan antarabangsa.</li>
-                            <li><strong>Laluan Sutera</strong> menghubungkan China dengan dunia luar, memperkaya ekonomi dan budaya.</li>
-                            <li><strong>Pencapaian teknologi:</strong> Penciptaan kertas, kompas, dan teknik pencetakan yang menyebarkan ilmu dengan lebih meluas.</li>
-                            <li><strong>Seni bina:</strong> Istana dan pagoda yang melambangkan keagungan tamadun China.</li>
-                        </ul>
-                    </article>
-                </ResponsiveSection>
-            </main>
-        </>
+                            <h2>Tamadun India</h2>
+                            <ul>
+                                <li>Berkembang pesat semasa pemerintahan <strong>Dinasti Maurya</strong> dan <strong>Dinasti Gupta.</strong></li>
+                                <li><strong>Maharaja Chandragupta Maurya</strong> dan <strong>Asoka</strong> memperkenalkan sistem pemerintahan yang kuat dan toleransi agama.</li>
+                                <li>Asoka menyebarkan ajaran <strong>Buddha</strong> ke serata Asia melalui misi diplomatik.</li>
+                                <li><strong>Dinasti Gupta</strong> dikenali sebagai zaman kegemilangan kerana kemajuan dalam <strong>seni, sains, dan falsafah.</strong></li>
+                                <li><strong>Sistem kasta</strong> menjadi tunjang sosial, mengatur peranan masyarakat mengikut kedudukan mereka.</li>
+                                <li><strong>Sumbangan utama dalam matematik:</strong> Konsep sifar dan angka perpuluhan oleh Aryabhata.</li>
+                                <li><strong>Seni bina agung:</strong> Candi Borobudur dan Ajanta mencerminkan keindahan seni dan kepercayaan keagamaan.</li>
+                            </ul>
+
+                            <h2>Tamadun China</h2>
+                            <ul>
+                                <li>Berkembang pesat semasa pemerintahan Dinasti Zhou, Qin, dan Han.</li>
+                                <li><strong>Falsafah utama:</strong> Konfusianisme, Taoisme, dan Legalisme mempengaruhi kehidupan sosial dan pemerintahan.</li>
+                                <li>Dinasti Qin terkenal dengan penyatuan wilayah China dan pembinaan Tembok Besar China.</li>
+                                <li>Dinasti Han membawa kemajuan dalam teknologi, perdagangan, dan hubungan antarabangsa.</li>
+                                <li><strong>Laluan Sutera</strong> menghubungkan China dengan dunia luar, memperkaya ekonomi dan budaya.</li>
+                                <li><strong>Pencapaian teknologi:</strong> Penciptaan kertas, kompas, dan teknik pencetakan yang menyebarkan ilmu dengan lebih meluas.</li>
+                                <li><strong>Seni bina:</strong> Istana dan pagoda yang melambangkan keagungan tamadun China.</li>
+                            </ul>
+                        </article>
+                    </ResponsiveSection>
+                </main>
+            </div>
+            <LessonSidebar
+                lessonContent={lesson.content}
+                className="w-11/12 sm:w-1/2 xl:w-1/3 2xl:w-1/4" 
+            />
+        </div>
     )
 }
