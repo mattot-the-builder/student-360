@@ -166,9 +166,11 @@ export function BigLessonCard({
                                     </p>
                                     <Progress value={progress} />
                                 </div>
-                                <Button>
-                                    Resume Lesson
-                                </Button>
+                                <Link href="/student/lesson/sample-lesson">
+                                    <Button>
+                                        Resume Lesson
+                                    </Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </div>
