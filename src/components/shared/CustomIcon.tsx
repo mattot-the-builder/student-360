@@ -35,6 +35,30 @@ const icons = {
         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 16L6.575 14.6L12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16Z" />
         </svg>,
+    "arrow-left":
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" />
+        </svg>,
+    book:
+        <svg viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 0H2C0.9 0 0 0.9 0 2V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V2C16 0.9 15.1 0 14 0ZM5 2H7V7L6 6.25L5 7V2ZM14 18H2V2H3V11L6 8.75L9 11V2H14V18Z" />
+        </svg>,
+    "trending-up":
+        <svg viewBox="0 0 20 12" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 0L16.29 2.29L11.41 7.17L7.41 3.17L0 10.59L1.41 12L7.41 6L11.41 10L17.71 3.71L20 6V0H14Z" />
+        </svg>,
+    close:
+        <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
+        </svg>,
+    'chevron-down':
+        <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.41 0.589996L6 5.17L10.59 0.589996L12 2L6 8L0 2L1.41 0.589996Z" />
+        </svg>,
+    'chevron-left':
+        <svg viewBox="0 0 8 12" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12L0 6L6 0L7.4 1.4L2.8 6L7.4 10.6L6 12Z" />
+        </svg>
 }
 
 export type iconNames = keyof typeof icons
@@ -60,7 +84,7 @@ export default function CustomIcon({
         <span
             className={cn(
                 "inline-flex items-center justify-center w-6 h-6 [&_svg]:w-full [&_svg]:h-full [&_svg]:fill-current",
-                variant === "square" && "rounded bg-black text-white",
+                variant === "square" && "rounded bg-black text-white p-1.5",
                 className
             )}
             {...props}

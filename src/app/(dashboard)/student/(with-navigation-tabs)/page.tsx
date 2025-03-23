@@ -56,7 +56,7 @@ const headerSummaryItems: { name: string, value: number, icon: iconNames, color:
     },
 ]
 
-const continueLearningLessons: Lesson[] = [
+export const continueLearningLessons: Lesson[] = [
     {
         subject: "Sejarah",
         name: "Peningkatan Tamadun India dan China",
